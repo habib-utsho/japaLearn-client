@@ -27,7 +27,7 @@
   z-index: 5000000000 !important;
 }
 
-/* dark form */
+/* form modification for dark theme */
 .myDarkForm svg,
 .myDarkForm::placeholder {
   color: #ffffff ;
