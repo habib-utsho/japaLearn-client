@@ -1,5 +1,5 @@
 import { Layout, Menu } from "antd";
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 import { adminPaths } from "../../routes/paths/adminPaths";
 import { sidebarItemsGenerator } from "../../utils/sidebarItemsGenerator";
 import { useAppSelector } from "../../redux/hook";
@@ -18,6 +18,7 @@ type TSidebarItems = {
 const Sidebar: React.FC = () => {
   const { user } = useAppSelector((state) => state.auth);
   const { name, profileImg, email } = user || {};
+  const [collapsed, setCollapsed] = useState(false);
 
   let sidebarItems: TSidebarItems[] = [];
   if (user?.role === role.ADMIN) {
@@ -30,15 +31,13 @@ const Sidebar: React.FC = () => {
   return (
     <Sider
       collapsible
+      collapsed={collapsed}
+      onCollapse={(value) => setCollapsed(value)}
       breakpoint="lg"
-      collapsedWidth="0"
-      onBreakpoint={(broken) => {
-        console.log(broken);
-      }}
-      onCollapse={(collapsed, type) => {
-        console.log(collapsed, type);
-      }}
+      // collapsedWidth="0"
+      // width={250}
       className="!h-screen !sticky !top-0"
+      theme="dark"
     >
       <div className="demo-logo-vertical" />
       <div className="mb-6 space-y-2 mt-4 mx-3">
@@ -47,12 +46,16 @@ const Sidebar: React.FC = () => {
           alt={name}
           className="w-full rounded-md h-[150px]"
         />
-        <h2 className="text-slate-200">
-          <MailOutlined /> {email}
-        </h2>
-        <p className="text-slate-200">
-          <UserOutlined /> {name}
-        </p>
+        {!collapsed && (
+          <h2 className="text-slate-200 hidden lg:block">
+            <MailOutlined /> {email}
+          </h2>
+        )}
+        {!collapsed && (
+          <p className="text-slate-200 hidden lg:block">
+            <UserOutlined /> {name}
+          </p>
+        )}
       </div>
 
       <Menu

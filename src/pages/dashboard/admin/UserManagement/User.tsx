@@ -53,15 +53,28 @@ const User = () => {
 
   const columns = [
     {
-      title: "Name",
-      dataIndex: "name",
+      title: "User",
+      render: (user: TUser) => {
+        return (
+          <div className="flex items-center gap-2">
+            {user?.profileImg && (
+              <img
+                src={user?.profileImg}
+                alt={user?.name}
+                className="h-10 w-10"
+              />
+            )}
+            <h2>{user?.name}</h2>
+          </div>
+        );
+      },
     },
     {
       title: "Email",
       dataIndex: "email",
     },
     {
-      title: "role",
+      title: "Role",
       dataIndex: "role",
       render: (role: TRole) => (
         <div
