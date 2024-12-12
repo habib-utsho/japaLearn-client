@@ -5,6 +5,7 @@ import { Button, Skeleton } from "antd";
 import { useGetAllVocabulariesQuery } from "../redux/api/vocabularyApi";
 import { TVocabulary } from "../types/vocabulary.type";
 import { useGetSingleLessonQuery } from "../redux/api/lessonApi";
+import MyMotion from "../components/helpingCompo/MyMotion";
 
 const Lesson = () => {
   const { id } = useParams();
@@ -80,29 +81,32 @@ const Lesson = () => {
               />
             ) : (
               currentVocabulary && (
-                <div className="p-6 rounded-md border border-slate-800">
-                  <h3
-                    className="text-3xl font-semibold cursor-pointer text-primary w-fit"
-                    onClick={() =>
-                      handlePronunciation(currentVocabulary.pronunciation)
-                    }
-                  >
-                    {currentVocabulary.word}
-                    <span className="text-sm text-gray-500 ml-2">
-                      (Click to pronounce)
-                    </span>
-                  </h3>
-                  <p>
-                    <strong>Meaning:</strong> {currentVocabulary.meaning}
-                  </p>
-                  <p>
-                    <strong>Pronunciation:</strong>{" "}
-                    {currentVocabulary.pronunciation}
-                  </p>
-                  <p>
-                    <strong>When to Say:</strong> {currentVocabulary.whenToSay}
-                  </p>
-                </div>
+                <MyMotion x={-50}>
+                  <div className="p-6 rounded-md border border-slate-800">
+                    <h3
+                      className="text-3xl font-semibold cursor-pointer text-primary w-fit"
+                      onClick={() =>
+                        handlePronunciation(currentVocabulary.pronunciation)
+                      }
+                    >
+                      {currentVocabulary.word}
+                      <span className="text-sm text-gray-500 ml-2">
+                        (Click to pronounce)
+                      </span>
+                    </h3>
+                    <p>
+                      <strong>Meaning:</strong> {currentVocabulary.meaning}
+                    </p>
+                    <p>
+                      <strong>Pronunciation:</strong>{" "}
+                      {currentVocabulary.pronunciation}
+                    </p>
+                    <p>
+                      <strong>When to Say:</strong>{" "}
+                      {currentVocabulary.whenToSay}
+                    </p>
+                  </div>
+                </MyMotion>
               )
             )}
             {pagination.page === vocabularies?.meta?.totalPage ? (

@@ -5,7 +5,7 @@ import { TLesson } from "../types/lesson.type";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import { Empty, Pagination, Skeleton } from "antd";
 import { Link } from "react-router-dom";
-import { div } from "framer-motion/client";
+import MyMotion from "../components/helpingCompo/MyMotion";
 
 const Lessons = () => {
   const [pagination, setPagination] = useState({ limit: 10, page: 1 });
@@ -36,27 +36,29 @@ const Lessons = () => {
           ) : (
             <div className="space-y-4">
               <div className="flex flex-col gap-4">
-                {lessons?.data.map((lesson: TLesson) => (
-                  <Link
-                    to={`/lessons/${lesson.number}`}
-                    key={lesson._id}
-                    className="group transition-all duration-500 flex justify-between items-center p-4 shadow shadow-slate-600 hover:shadow-slate-800 rounded-lg cursor-pointer"
-                  >
-                    <div className="space-y-1">
-                      {lesson.name}
-                      <span className="text-gray-500 text-sm">
-                        {" "}
-                        - Lesson {lesson.number}
+                {lessons?.data.map((lesson: TLesson, ind: number) => (
+                  <MyMotion x={ind % 2 === 0 ? 50 : -50}>
+                    <Link
+                      to={`/lessons/${lesson.number}`}
+                      key={lesson._id}
+                      className="group transition-all duration-500 flex justify-between items-center p-4 shadow shadow-slate-600 hover:shadow-slate-800 rounded-lg cursor-pointer"
+                    >
+                      <div className="space-y-1">
+                        {lesson.name}
+                        <span className="text-gray-500 text-sm">
+                          {" "}
+                          - Lesson {lesson.number}
+                        </span>
+                        <p className="text-gray-500 text-sm mb-0">
+                          {" "}
+                          - {lesson.vocabularyCount} Vocabulary
+                        </p>
+                      </div>
+                      <span className="h-10 w-10 bg-primary transition-all duration-500 rounded-full flex items-center justify-center group-hover:translate-x-1">
+                        <ArrowRightOutlined />
                       </span>
-                      <p className="text-gray-500 text-sm mb-0">
-                        {" "}
-                        - {lesson.vocabularyCount} Vocabulary
-                      </p>
-                    </div>
-                    <span className="h-10 w-10 bg-primary transition-all duration-500 rounded-full flex items-center justify-center group-hover:translate-x-1">
-                      <ArrowRightOutlined />
-                    </span>
-                  </Link>
+                    </Link>
+                  </MyMotion>
                 ))}
               </div>
 

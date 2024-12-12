@@ -4,6 +4,7 @@ import { useGetAllTutorialsQuery } from "../redux/api/tutorialApi";
 import { Card, Empty, Skeleton, Pagination, Typography } from "antd";
 import ReactPlayer from "react-player";
 import { TTutorial } from "../types/tutorial.type";
+import MyMotion from "../components/helpingCompo/MyMotion";
 
 const { Text } = Typography;
 
@@ -39,24 +40,26 @@ const Tutorials = () => {
             <Empty description="No tutorials found" />
           ) : (
             <>
-              {tutorials?.data.map((tutorial: TTutorial) => (
-                <Card
-                  key={tutorial._id}
-                  className="transition-all duration-500  border-slate-700 bg-transparent text-white p-0"
-                  cover={
-                    <ReactPlayer
-                      url={tutorial.link}
-                      width="100%"
-                      height="250px"
-                      light={true}
-                      controls
-                    />
-                  }
-                >
-                  <h2 className="text-xl font-semibold line-clamp-2">
-                    {tutorial.title}
-                  </h2>
-                </Card>
+              {tutorials?.data.map((tutorial: TTutorial, ind: number) => (
+                <MyMotion x={ind % 2 === 0 ? 50 : -50}>
+                  <Card
+                    key={tutorial._id}
+                    className="transition-all duration-500  border-slate-700 bg-transparent text-white p-0 h-full"
+                    cover={
+                      <ReactPlayer
+                        url={tutorial.link}
+                        width="100%"
+                        height="250px"
+                        light={true}
+                        controls
+                      />
+                    }
+                  >
+                    <h2 className="text-xl font-semibold line-clamp-2">
+                      {tutorial.title}
+                    </h2>
+                  </Card>
+                </MyMotion>
               ))}
             </>
           )}
