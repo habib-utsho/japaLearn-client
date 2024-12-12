@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Dark table */
+.dark-table .ant-table {
+  background-color: #1b2537 !important; /* Dark background color */
+  color: #ffffff; /* Text color */
+}
+
+.dark-table .ant-table-thead > tr > th {
+  background-color: #1b2537 !important; /* Dark header background */
+  color: #ffffff; /* Header text color */
+}
+
+.dark-table .ant-table-tbody > tr > td {
+  color: #ffffff; /* Row text color */
+  border-color: #1b2537 !important; /* Border color */
+}
+
+.dark-table .ant-table-tbody > tr:hover > td {
+  background-color: #0f172a !important; /* Hover effect */
+}
