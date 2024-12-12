@@ -9,7 +9,7 @@ import { userPaths } from "./paths/userPaths";
 import AdminRoute from "./PrivateRoutes/AdminRoute";
 import { adminPaths } from "./paths/adminPaths";
 import Signup from "../pages/Signup";
-import Lessons from "../pages/lessons";
+import Lessons from "../pages/Lessons";
 import Tutorials from "../pages/Tutorials";
 import Lesson from "../pages/Lesson";
 

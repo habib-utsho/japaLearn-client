@@ -1,12 +1,10 @@
 import { useState } from "react";
 import Container from "../components/ui/Container";
 import { useGetAllTutorialsQuery } from "../redux/api/tutorialApi";
-import { Card, Empty, Skeleton, Pagination, Typography } from "antd";
+import { Card, Empty, Skeleton, Pagination } from "antd";
 import ReactPlayer from "react-player";
 import { TTutorial } from "../types/tutorial.type";
 import MyMotion from "../components/helpingCompo/MyMotion";
-
-const { Text } = Typography;
 
 const Tutorials = () => {
   const [pagination, setPagination] = useState({ limit: 12, page: 1 });

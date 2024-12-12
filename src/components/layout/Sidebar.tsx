@@ -5,7 +5,7 @@ import { sidebarItemsGenerator } from "../../utils/sidebarItemsGenerator";
 import { useAppSelector } from "../../redux/hook";
 import { role } from "../../constant/index.constant";
 import { userPaths } from "../../routes/paths/userPaths";
-import { MailFilled, PhoneFilled, UserOutlined } from "@ant-design/icons";
+import { MailFilled, UserOutlined } from "@ant-design/icons";
 import { useGetMeQuery } from "../../redux/api/authApi";
 
 const { Sider } = Layout;

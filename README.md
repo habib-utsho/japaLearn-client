@@ -1,50 +1,39 @@
-# JapaLearn -  a Japanese Vocabulary Learning Application
+# JapaLearn - a Japanese Vocabulary Learning Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Japalearn! This application is built using Express.js, MongoDB, Mongoose and TypeScript to help you efficiently learn japanese vocabulary.
 
-Currently, two official plugins are available:
+**Getting Started**
+To get started with the Japalearn locally, follow these steps:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Clone this repository to your local machine:
 
-## Expanding the ESLint configuration
+git clone [https://github.com/habib-utsho/japaLearn-client.git](https://github.com/habib-utsho/japaLearn-client.git)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+**Navigate into the project directory:** cd japalearn-client
+**Install dependencies:** yarn install
 
-- Configure the top-level `parserOptions` property like this:
+**Set up your environment variables:**
+Create a .env file in the root directory and provide the following variables:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+###### **VITE_API_BASE_URL**=your_api_base_url
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Technology used
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- TypeScript
+- React
+- Tailwind
+- RTK Query
+- Ant Design
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Features
+- Authentication
+- Authorization
+- Admin can create, update and delete lessons, vocabulary and tutorials
+- Implemented advanced filtering, searching and pagination
+- Role base page access
+
+Running the Server by- **yarn dev**
+
+Local Base URL: **[Link](http://localhost:5173)**
+
+Production Base URL: **[Link](https://japalearn-server.onrender.com/api/v1)**

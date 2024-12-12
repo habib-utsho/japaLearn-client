@@ -29,7 +29,7 @@ const { Search } = Input;
 const User = () => {
   const [pagination, setPagination] = useState({ limit: 10, page: 1 });
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [params, setParams] = useState<TQueryParam[]>([]);
+  const [params] = useState<TQueryParam[]>([]);
   const [searchTerm, setSearchTerm] = useState<string | null>(null);
 
   const {
