@@ -26,6 +26,7 @@ Create a .env file in the root directory and provide the following variables:
 - Ant Design
 
 ## Features
+
 - Authentication
 - Authorization
 - Admin can create, update and delete lessons, vocabulary and tutorials
@@ -36,4 +37,4 @@ Running the Server by- **yarn dev**
 
 Local Base URL: **[Link](http://localhost:5173)**
 
-Production Base URL: **[Link](https://japalearn-server.onrender.com/api/v1)**
+Production Base URL: **[Link](https://japalearn.vercel.app/)**
