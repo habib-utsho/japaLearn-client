@@ -6,6 +6,7 @@ import { useGetAllVocabulariesQuery } from "../redux/api/vocabularyApi";
 import { TVocabulary } from "../types/vocabulary.type";
 import { useGetSingleLessonQuery } from "../redux/api/lessonApi";
 import MyMotion from "../components/helpingCompo/MyMotion";
+import Container from "../components/ui/Container";
 
 const Lesson = () => {
   const { id } = useParams();
@@ -63,7 +64,7 @@ const Lesson = () => {
 
   return (
     <div className="py-4">
-      <div className="container mx-auto">
+      <Container>
         {isLoadingLesson ? (
           <Skeleton.Button
             active
@@ -148,7 +149,7 @@ const Lesson = () => {
             )}
           </>
         )}
-      </div>
+      </Container>
 
       {isLessonComplete && (
         <Confetti
