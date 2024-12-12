@@ -10,6 +10,7 @@ import {
 import MyMotion from "../helpingCompo/MyMotion";
 import Container from "../ui/Container";
 
+
 const footerLinks = {
   important: [
     { path: "/lessons", label: "Home" },
