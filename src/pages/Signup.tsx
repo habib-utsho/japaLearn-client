@@ -20,6 +20,9 @@ const Signup = () => {
     // Append image file if present
     if (fileList.length > 0 && fileList[0]?.originFileObj) {
       formData.append("file", fileList[0].originFileObj);
+    } else {
+      message.error("Profile image is required!");
+      return;
     }
 
     try {
@@ -61,6 +64,7 @@ const Signup = () => {
               label={<span className="text-white">Profile Image</span>}
               valuePropName="fileList"
               className="mb-6"
+              rules={[{ required: true, message: "Profile image is required" }]}
               getValueFromEvent={(e) => {
                 if (Array.isArray(e)) {
                   return e;
