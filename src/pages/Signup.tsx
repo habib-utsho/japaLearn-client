@@ -12,6 +12,7 @@ const Signup = () => {
 
   const [fileList, setFileList] = useState<UploadFile[]>([]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSignup = async (data: any) => {
     const formData = new FormData();
     formData.append("data", JSON.stringify(data));
@@ -33,6 +34,7 @@ const Signup = () => {
           content: result?.message || "Signup failed",
         });
       }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       message.error({
         content: error?.message || error?.data?.message || "Signup failed",
@@ -73,11 +75,14 @@ const Signup = () => {
                 onChange={({ fileList: newFileList }) =>
                   setFileList(newFileList)
                 }
-                // @ts-ignore
-                customRequest={({ file, onSuccess, onError }) => {
+                customRequest={({ file, onSuccess }) => {
                   setTimeout(() => {
-                    // @ts-ignore
-                    onSuccess({ url: URL.createObjectURL(file) }, file);
+                    if (onSuccess) {
+                      onSuccess(
+                        { url: URL.createObjectURL(file as Blob) },
+                        file
+                      );
+                    }
                   }, 1000);
                 }}
                 showUploadList={{
