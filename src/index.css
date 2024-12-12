@@ -21,3 +21,14 @@
 .dark-table .ant-table-tbody > tr:hover > td {
   background-color: #0f172a !important; /* Hover effect */
 }
+
+/* Overwrite antd message css */
+.ant-message {
+  z-index: 5000000000 !important;
+}
+
+/* dark form */
+.myDarkForm svg,
+.myDarkForm::placeholder {
+  color: #ffffff ;
+}

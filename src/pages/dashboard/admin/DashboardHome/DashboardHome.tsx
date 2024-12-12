@@ -1,4 +1,5 @@
 import {
+  AimOutlined,
   BookOutlined,
   ReadOutlined,
   UserAddOutlined,
@@ -32,20 +33,29 @@ const DashboardHome = () => {
       iconBackground: "#ff947a",
     },
     {
-      amount: `${adminStats?.data?.totalLessons || 0}`,
+      amount: `${adminStats?.data?.totalLesson || 0}`,
       title: "Total Lessons",
       icon: <ReadOutlined />,
       background: "#dcfce7",
       iconBackground: "#3cd856",
     },
     {
-      amount: `${adminStats?.data?.availableSlots || 0}`,
-      title: "Available Slots",
+      amount: `${adminStats?.data?.totalVocabulary || 0}`,
+      title: "Total Vocabulary",
       icon: <BookOutlined />,
       background: "#f3e8ff",
       iconBackground: "#bf83ff",
     },
+    {
+      amount: `${adminStats?.data?.totalTutorials || 0}`,
+      title: "Total Tutorials",
+      icon: <AimOutlined />,
+      background: "#f3e8ff",
+      iconBackground: "#d89573",
+    },
   ];
+
+  console.log(adminStats);
 
   return (
     <div style={{ padding: "24px", background: "#f0f2f5" }}>
@@ -62,7 +72,7 @@ const DashboardHome = () => {
             <h2 className="font-semibold text-xl md:text-2xl mb-2">
               Overall summary
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4  gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5  gap-4">
               {isLoadingStats
                 ? Array.from({ length: 5 }).map((_, index) => (
                     <Skeleton.Button

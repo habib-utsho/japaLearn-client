@@ -12,8 +12,11 @@ const Lesson = () => {
   const [isLessonComplete, setIsLessonComplete] = useState(false);
   const navigate = useNavigate();
 
-  const { data: lesson, isLoading: isLoadingLesson } =
-    useGetSingleLessonQuery(id);
+  const {
+    data: lesson,
+    isError,
+    isLoading: isLoadingLesson,
+  } = useGetSingleLessonQuery(id);
   const {
     data: vocabularies,
     isLoading: isLoadingVocabularies,
@@ -50,6 +53,12 @@ const Lesson = () => {
   };
 
   const currentVocabulary = vocabularies?.data?.[0] as TVocabulary;
+
+  if (isError) {
+    return (
+      <h2 className="font-bold text-center text-xl">Something is wrong</h2>
+    );
+  }
 
   return (
     <div className="py-4">

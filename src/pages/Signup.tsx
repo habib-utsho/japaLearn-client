@@ -53,7 +53,7 @@ const Signup = () => {
               name="signup"
               onFinish={handleSignup}
               layout="vertical"
-              className="mt-2 text-white"
+              className="mt-2 text-white myDarkForm"
             >
               {/* Profile Image Upload */}
               <Form.Item

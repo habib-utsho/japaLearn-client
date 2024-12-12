@@ -7,7 +7,7 @@ import {
   BookOutlined,
   LoginOutlined,
 } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import { signOut } from "../../redux/features/authSlice";
@@ -15,7 +15,7 @@ import Container from "../ui/Container";
 
 const Navbar = () => {
   const { user, isAuthLoading } = useAppSelector((state) => state.auth);
-
+  const { pathname } = useLocation();
   const dispatch = useAppDispatch();
 
   const authenticatedRoutes = [
@@ -24,11 +24,11 @@ const Navbar = () => {
       label: <Link to={`/${user?.role}/dashboard`}>Dashboard</Link>,
       icon: <DashboardOutlined />,
     },
-    {
-      key: "2",
-      label: <Link to={`/${user?.role}/dashboard/profile`}>My profile</Link>,
-      icon: <UserOutlined />,
-    },
+    // {
+    //   key: "2",
+    //   label: <Link to={`/${user?.role}/dashboard/profile`}>My profile</Link>,
+    //   icon: <UserOutlined />,
+    // },
     {
       key: "4",
       label: "Sign Out",
@@ -90,7 +90,7 @@ const Navbar = () => {
 
   const menu = [
     {
-      key: "1",
+      key: "/lessons",
       label: (
         <Link to={`/lessons`} className="!text-white">
           Lessons
@@ -99,7 +99,7 @@ const Navbar = () => {
       icon: <ReadOutlined className="!text-white" />,
     },
     {
-      key: "2",
+      key: "/tutorials",
       label: (
         <Link to={`/tutorials`} className="!text-white">
           Tutorials
@@ -122,6 +122,7 @@ const Navbar = () => {
                 items={menu}
                 mode="horizontal"
                 className="py-1 rounded-md justify-end px-2 bg-slate-800 !text-white"
+                selectedKeys={[pathname]}
               />
             </div>
             <div className="mx-auto sm:mx-0 ">{rightMenu}</div>

@@ -12,17 +12,17 @@ import Container from "../ui/Container";
 
 const footerLinks = {
   important: [
-    { path: "/", label: "Home" },
-    { path: "/services", label: "Services" },
-    { path: "/services", label: "Booking" },
-    { path: "/services", label: "Slots" },
-    { path: "/services", label: "Upcoming booking" },
+    { path: "/lessons", label: "Home" },
+    { path: "/lessons", label: "Lessons" },
+    { path: "/tutorials", label: "Tutorials" },
+    { path: "/lessons", label: "Lessons" },
+    { path: "/tutorials", label: "Tutorials" },
   ],
   about: [
-    { path: "/services", label: "About us" },
-    { path: "/services", label: "Meet our hero" },
-    { path: "/services", label: "Provide service" },
-    { path: "/services", label: "Booking" },
+    { path: "/tutorials", label: "Tutorials" },
+    { path: "/lessons", label: "Lessons" },
+    { path: "/tutorials", label: "Tutorials" },
+    { path: "/lessons", label: "Lessons" },
   ],
   legal: [
     { path: "/", label: "Terms of use" },
@@ -43,7 +43,7 @@ const socialLinks = [
 const Footer = () => {
   return (
     <footer
-      className="bg-center bg-cover bg-blend-overlay bg-slate-900 bg-fixed"
+      className="bg-center bg-cover bg-blend-overlay bg-slate-900 bg-fixed border-t border-slate-800"
       style={{ backgroundImage: `url(${footerBg})` }}
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 max-w-7xl mx-10 xl:mx-auto py-24 text-white">
@@ -81,7 +81,7 @@ const Footer = () => {
         {/* Logo and Academy Info Section */}
         <div className="col-span-6 flex justify-center items-center">
           <MyMotion y={-100}>
-            <div className="rounded-full h-64 w-64 flex flex-col justify-center items-center space-y-4 bg-secondary bg-opacity-25">
+            <div className="rounded-full h-64 w-64 flex flex-col justify-center items-center space-y-4 bg-primary bg-opacity-25">
               <img
                 src={logo}
                 className="h-12 w-12 rounded-full"
@@ -145,7 +145,7 @@ const Footer = () => {
             </ul>
             <p className="py-6 font-bold !mb-0">
               Copyright © {new Date().getFullYear()} - All rights reserved by{" "}
-              <span className="text-primary text-lg">Cleanify</span>
+              <span className="text-primary text-lg">Japalearn</span>
             </p>
           </div>
         </Container>

@@ -1,4 +1,5 @@
 import {
+  AimOutlined,
   BookOutlined,
   DashboardOutlined,
   ReadOutlined,
@@ -8,6 +9,7 @@ import User from "../../pages/dashboard/admin/UserManagement/User";
 import DashboardHome from "../../pages/dashboard/admin/DashboardHome/DashboardHome";
 import Lessons from "../../pages/dashboard/admin/Lesson/Lesson";
 import Vocabulary from "../../pages/dashboard/admin/Vocabulary/Vocabulary";
+import Tutorials from "../../pages/dashboard/admin/Tutorial/Tutorial";
 
 export const adminPaths = [
   {
@@ -51,5 +53,11 @@ export const adminPaths = [
         icon: <BookOutlined />,
       },
     ],
+  },
+  {
+    name: "Tutorials",
+    path: "tutorials",
+    element: <Tutorials />,
+    icon: <AimOutlined />,
   },
 ];
