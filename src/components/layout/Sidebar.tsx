@@ -5,8 +5,7 @@ import { sidebarItemsGenerator } from "../../utils/sidebarItemsGenerator";
 import { useAppSelector } from "../../redux/hook";
 import { role } from "../../constant/index.constant";
 import { userPaths } from "../../routes/paths/userPaths";
-import { MailFilled, UserOutlined } from "@ant-design/icons";
-import { useGetMeQuery } from "../../redux/api/authApi";
+import { MailOutlined, UserOutlined } from "@ant-design/icons";
 
 const { Sider } = Layout;
 
@@ -17,12 +16,8 @@ type TSidebarItems = {
 };
 
 const Sidebar: React.FC = () => {
-  const { user, token } = useAppSelector((state) => state.auth);
+  const { user } = useAppSelector((state) => state.auth);
   const { name, profileImg, email } = user || {};
-
-  const { data: meData } = useGetMeQuery(token as string);
-
-  console.log(meData, "meData");
 
   let sidebarItems: TSidebarItems[] = [];
   if (user?.role === role.ADMIN) {
@@ -53,7 +48,7 @@ const Sidebar: React.FC = () => {
           className="w-full rounded-md h-[150px]"
         />
         <h2 className="text-slate-200">
-          <MailFilled /> {email}
+          <MailOutlined /> {email}
         </h2>
         <p className="text-slate-200">
           <UserOutlined /> {name}
