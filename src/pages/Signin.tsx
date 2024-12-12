@@ -93,7 +93,10 @@ const Signin = () => {
 
   return (
     <section className="min-h-screen py-4 flex mx-auto justify-center items-center">
-      <div className="p-8 md:p-10 shadow shadow-primary/30 bg-slate-800  rounded-md w-5/6 sm:w-4/6 md:3/6 lg:w-2/6">
+      <div
+        className="p-8 md:p-10 shadow shadow-primary/30 bg-slate-800  rounded-md w-5/6 sm:w-4/6 md:3/6 
+      lg:w-2/6"
+      >
         <Typography.Title level={3} className="!mb-0 !text-white">
           Japalearn
         </Typography.Title>
